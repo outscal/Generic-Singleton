@@ -1,4 +1,4 @@
-## **Simplest Singleton in C#**
+## **Early Singleton in C#**
 
 Singleton is a basic Design Pattern. Classes implementing Singleton pattern will ensure that only one instance of the object ever exists at any one time. It is recommend using Singletons for things that do not need to be copied multiple times during a game.
 
@@ -29,4 +29,20 @@ Above code is the simplest implementation of Singleton, but there are some issue
 - This code works only for SingletonController Class, but if you want another singleton controller eg. AudioController
 
 
-In order to fix the above issues, see the next chapter!
+In order to fix the above issues, we can add the DontDestroyOnLoad(gameObject). Refer to the code below,
+
+```C#
+
+public class SingletonController : MonoBehaviour {
+public static SingletonController instance;
+ 
+  private void Awake() {
+   if (instance != null) {
+     Destroy(gameObject);
+   }else{
+     Instance = this;
+     DontDestroyOnLoad(gameObject);
+   }
+ }
+}
+```
