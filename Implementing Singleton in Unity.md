@@ -27,3 +27,6 @@ Above code is the simplest implementation of Singleton, but there are some issue
 - All the executable code must be attached to GameObject in the hierarchy.
 - It is not recommended to call SingletonController.Instance in any Awake() method because, since we don’t know the order that Awake() will be executed through all scripts, we can end up with a Null Reference Exception.
 - This code works only for SingletonController Class, but if you want another singleton controller eg. AudioController
+
+
+In order to fix the above issues, see the next chapter!
